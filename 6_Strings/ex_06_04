@@ -1,0 +1,2 @@
+fruit = 'banana'
+print('banana'.count("a"))

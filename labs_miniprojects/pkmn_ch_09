@@ -1,0 +1,9 @@
+import csv
+pkmn_dict = {}
+
+with open('pokemon.csv', 'r') as file:
+    reader = csv.reader(file)
+    for line in file:
+        pkmn_dict[line[0]] = pkmn_dict.get(line[0], 0) + 1
+
+print(pkmn_dict)

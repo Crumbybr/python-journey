@@ -1,0 +1,28 @@
+import socket
+
+mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM) #creates the socket file
+url_prompt = input('Enter the url: ')
+if (len(url_prompt) < 1) or (not url_prompt.startswith("http://")) :
+#Here's the URL: http://data.pr4e.org/intro-short.txt
+    print("Incorrect URL, please try again. ")
+    exit()
+url_split = url_prompt.split('/')
+url_only = url_split[2]
+print(url_only)
+
+mysock.connect((url_only, 80))
+cmd = (f'GET {url_prompt} HTTP/1.0\r\n\r\n').encode()
+mysock.send(cmd)
+
+total_count = 0
+
+while True:
+    data = mysock.recv(3000)
+    total_count += len(data)
+    if total_count > 3000:
+        break
+    print(data.decode(),end='')
+
+print(f'\nTotal characters received: {total_count}')
+
+mysock.close()

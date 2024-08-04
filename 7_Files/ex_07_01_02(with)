@@ -1,0 +1,5 @@
+fname = input("Enter the filename: ")
+with open(fname) as file:
+        for line in file:
+                u_print = line.upper()
+        print(u_print)

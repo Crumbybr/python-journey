@@ -1,0 +1,17 @@
+largest = None #Initialize maximum
+smallest = None #Initialize minimum
+while True:
+    num = input("Enter a number: ") #Prompt user for input
+    if num == "done": #if user enters done, break
+        break #exits loop
+    try: 
+        num = int(num) #if number is a integer
+        if largest is None or num > largest: #if the largest number is equal to None (as we initialized maximum to in the beginning)
+            largest = num #if the number is greater than the current largest number then this will take the place of the largest number.
+        if smallest is None or num < smallest: #same concept as above but for the smallest number
+            smallest = num
+    except: #if the input is not a number.
+        print("Invalid input")
+        continue #continue skips to the next iteration of the loop
+print("Maximum is", largest)
+print("Minimum is", smallest)

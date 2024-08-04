@@ -1,0 +1,9 @@
+fname = input('Enter filename: ')
+messages = {}
+with open(fname) as f:
+    for line in f:      
+        if line.startswith('From '):
+            line = line.split()
+            email = line[1]
+        messages[email] = messages.get(email, 0) + 1
+    print(messages)

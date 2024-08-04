@@ -1,0 +1,8 @@
+def chop(lst):
+    del lst[0]
+    del lst[-1]
+    return(None)
+
+def middle(lst):
+    lst[1:-1]
+    return(lst[1:-1])

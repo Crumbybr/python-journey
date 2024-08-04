@@ -1,0 +1,21 @@
+messages_per_person = {}
+most_commits = None
+fname = input("Enter filename: ") 
+if len(fname) < 1 : fname = 'mbox-short.txt'
+
+with open(fname) as f:
+    for line in f:
+        if line.startswith("From: "):
+            line = line.split()
+            extract = line[1]
+
+            messages_per_person[extract] = messages_per_person.get(extract, 0) + 1
+    
+dict_to_tuples = list(messages_per_person.items()) #Here I converted the dictionary to a list of tuples. I can also print it. Py4e pg. 195
+
+reverse_tuple = [(count,email)for email, count in dict_to_tuples] #need more practice to lock this in
+     
+#print(dict_to_tuples)
+
+
+print(sorted(reverse_tuple,reverse=True)[0]) #Here I sorted the tuple in reverse order. I can also assign it to a variable using the .sort() method. Py4e pg. 196

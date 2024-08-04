@@ -1,0 +1,12 @@
+import csv
+
+pkmn= "/Users/brandon/Documents/1_Documents/1_action_folders_perm/1_docs_perm/1_courses/3_fcc/py4e/labs_miniprojects/pokemon.csv"
+
+with open(pkmn) as file:
+    cs = csv.reader(file)
+    for lines in cs:
+        pkmn_row = lines[1]
+        pkmn_upper = pkmn_row.upper()
+        if pkmn_upper.startswith("M"):
+        #print(pkmn_upper)
+            print(pkmn_upper)

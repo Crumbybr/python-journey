@@ -1,0 +1,8 @@
+count = 0
+with open('mbox-short.txt') as file:
+    for line in file:
+        if line.startswith("From "):
+            words = line.split()
+            count += 1
+            print(words[1])
+    print("There were",count,"lines in the file with From as the first word")

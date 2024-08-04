@@ -1,0 +1,17 @@
+# Initialize count and total
+fname = input("Enter filename: ")
+count = 0
+total = 0.0
+
+# Open the file
+with open(fname) as file:
+    # Loop over each line
+    for line in file: 
+        # Check if th line starts with 
+        if line.startswith("X-DSPAM-Confidence:"):
+         # Extract the number and add it to the total
+            total += float(line[21:])
+        # Incrememt the count
+            count += 1
+    print("Average spam confidence:",total/count)
+

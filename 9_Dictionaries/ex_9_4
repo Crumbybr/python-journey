@@ -1,0 +1,21 @@
+fname = input('Enter filename: ')
+if len(fname) < 1: fname = 'mbox-short.txt'
+max_email = None
+max_email_address = 0
+messages = {}
+
+with open(fname) as f:
+    for line in f:      
+        if line.startswith('From '):
+            word = line.split()
+            email = word[1]
+            messages[email] = messages.get(email, 0) + 1
+
+for email, count in messages.items():
+    if max_email is None or count > max_email:
+        max_email = count
+        max_email_address = email
+    
+print(max_email_address, max_email)               
+      
+

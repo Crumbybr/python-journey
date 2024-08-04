@@ -1,0 +1,28 @@
+from urllib.request import urlopen
+from bs4 import BeautifulSoup
+import ssl
+
+# Ignore SSL certificate errors
+ctx = ssl.create_default_context()
+ctx.check_hostname = False
+ctx.verify_mode = ssl.CERT_NONE
+
+# URL to fetch and parse the document
+url = 'http://py4e-data.dr-chuck.net/comments_1940035.html'
+html = urlopen(url, context=ctx).read()
+soup = BeautifulSoup(html, "html.parser")
+
+# Initialize total sum
+total_sum = 0
+
+# Retrieve all of the span tags
+tags = soup('span')
+
+# Loop through the tags and extract the content
+for tag in tags:
+    # Get the content of the tag, convert it to integer and add to the sum
+    number = int(tag.text)
+    total_sum += number
+
+# Print the total sum
+print("Sum:", total_sum)

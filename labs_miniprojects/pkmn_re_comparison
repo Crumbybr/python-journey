@@ -1,0 +1,10 @@
+import csv
+import re
+
+with open('pokemon.csv') as f:
+    for line in f:
+        line.split(',')
+        hitmonchan = re.findall(line)
+        #hitmonlee = re.findall('107', line)
+        #headings = re.findall('Type', line)
+        print(line)

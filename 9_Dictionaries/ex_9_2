@@ -1,0 +1,8 @@
+fname = input('Enter the filename: ')
+days = {}
+with open(fname) as file:
+    for line in file:
+        if line.startswith("From "):
+            day = line.split()[2]
+            days[day] = days.get(day, 0) + 1       
+    print(days)

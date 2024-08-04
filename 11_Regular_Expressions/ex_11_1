@@ -1,0 +1,15 @@
+import re
+
+prompt = input("Enter a regular expression: ")
+if len(prompt) < 1 : quit()
+
+count = 0
+
+fname = 'mbox-short.txt'
+
+with open(fname) as f:
+    for line in f:
+        if len(re.findall(prompt,line)):
+            count += 1
+
+print(fname, "had", count, "line(s) that matched",prompt)

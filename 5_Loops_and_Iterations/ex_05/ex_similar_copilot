@@ -1,0 +1,15 @@
+total = 0
+count = 0
+while True:
+    num = input('Enter a number:')
+    if num == 'quit':
+        break
+    try:
+        num = int(num)
+        total += num
+        count += 1
+    except:
+        print('Invalid input')
+        continue
+print('Sum is:', total)
+print('Average is: ', total/count if count else 0)

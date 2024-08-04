@@ -1,0 +1,16 @@
+fname = input("Enter filename: ")
+if len(fname) < 1 : fname = 'mbox-short.txt'
+hours = {}
+
+with open(fname) as f:
+    for line in f:
+        if line.startswith('From '):
+            line_split = line.split()
+            time_extract = line_split[5]
+            time_strip = time_extract.strip()[0:2]
+            hours[time_strip] = hours.get(time_strip, 0) + 1
+
+dict_to_tuple = list(hours.items())
+for hours in sorted(dict_to_tuple):
+    print(hours[0], hours[1])
+
