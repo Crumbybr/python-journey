@@ -2,20 +2,36 @@ from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import ssl 
 
-# Ignore ssl certificate errors
+# Ignore SSL certificate errors
 ctx = ssl.create_default_context()
 ctx.check_hostname = False
 ctx.verify_mode = ssl.CERT_NONE
 
-# URL to fetch and parse the document
-url = 'http://py4e-data.dr-chuck.net/known_by_Fikret.html'
-html = urlopen(url, context=ctx).read()
-soup = BeautifulSoup(html, 'html.parser')
-
-tags = soup('href')
-
-#program to loop through url and extract data
-for name in tags:
+# Function to follow the links
+def follow_links(url, count, position):
+    for i in range(count):
+        print(f"Retrieving: {url}")
+        html = urlopen(url, context=ctx).read()
+        soup = BeautifulSoup(html, 'html.parser')
+        
+        # Retrieve all anchor tags
+        tags = soup.find_all('a')
+        
+        # Find the tag at the specified position (1-based index)
+        url = tags[position - 1].get('href')
     
+    # The last name is in the last URL retrieved
+    print(f"Retrieving: {url}")
+    return url
 
-    
+# Input parameters
+start_url = input('Enter URL: ')  # http://py4e-data.dr-chuck.net/known_by_Fikret.html
+count = int(input('Enter count: '))  
+position = int(input('Enter position: '))  
+
+# Follow the links and get the last URL
+last_url = follow_links(start_url, count, position)
+
+# Extract and print the last name
+last_name = last_url.split('_')[-1].split('.')[0]
+print(f"The answer to the assignment is '{last_name}'.")

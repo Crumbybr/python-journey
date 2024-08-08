@@ -1,0 +1,8 @@
+import csv
+
+total = 0
+
+with open('pokemon.csv') as pokedex:
+    for line in pokedex:
+        total += line.count('Dragon')
+    print('Total: ',total)

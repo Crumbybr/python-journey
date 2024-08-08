@@ -5,8 +5,8 @@ while True:
     if num == "done": #if user enters done, break
         break #exits loop
     try: 
-        num = int(num) #if number is a integer
-        if largest is None or num > largest: #if the largest number is equal to None (as we initialized maximum to in the beginning)
+        num = int(num) #if number is an integer
+        if largest is None or num > largest: #if the largest number is equal to None (as I initialized maximum to in the beginning)
             largest = num #if the number is greater than the current largest number then this will take the place of the largest number.
         if smallest is None or num < smallest: #same concept as above but for the smallest number
             smallest = num

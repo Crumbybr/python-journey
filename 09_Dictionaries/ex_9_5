@@ -9,8 +9,8 @@ with open(fname) as f:
             domain_extract = line[1].split("@")
             domain_name = domain_extract[1]
             
-            #print(line) Made it to this point by myself!
+            #print(line) Achieved the above code swiftly via recollection!
 
-            #wrote the line below by myself but made a mistake on the key argument and had a different variable in it then line.    
+            #Made a mistake on the key argument. Different variable than line.    
             domain_counts[domain_name] = domain_counts.get(domain_name, 0) + 1
     print(domain_counts)
