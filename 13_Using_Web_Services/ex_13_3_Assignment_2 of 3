@@ -1,0 +1,19 @@
+import urllib.request
+import json
+
+url = input('Enter url: ')
+if len(url) < 1:
+    url = "http://py4e-data.dr-chuck.net/comments_42.json"
+
+url_open = urllib.request.urlopen(url) 
+
+info = json.loads(url_open)
+
+print("User count: ", len(info))
+
+total_count = 0
+
+for item in info:
+    print('Name: ',['name'])
+    print('Id: ', item['id'])
+    print('Attribute: ', item['x'])

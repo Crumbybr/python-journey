@@ -1,5 +1,6 @@
 import csv
 pkmn_dict = {}
+pkmn= "/Users/brandon/Documents/1_Documents/1_action_folders_perm/1_docs_perm/1_courses/3_fcc/py4e/labs_miniprojects/_pkmn/pkmn.csv"
 
 with open('pokemon.csv', 'r') as file:
     reader = csv.reader(file)
