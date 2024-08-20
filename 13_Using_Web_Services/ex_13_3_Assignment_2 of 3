@@ -3,17 +3,18 @@ import json
 
 url = input('Enter url: ')
 if len(url) < 1:
-    url = "http://py4e-data.dr-chuck.net/comments_42.json"
+    url = "http://py4e-data.dr-chuck.net/comments_1940038.json"
 
 url_open = urllib.request.urlopen(url) 
+data = url_open.read().decode()
 
-info = json.loads(url_open)
+info = json.loads(data)
 
-print("User count: ", len(info))
+comments = info['comments']
 
 total_count = 0
 
-for item in info:
-    print('Name: ',['name'])
-    print('Id: ', item['id'])
-    print('Attribute: ', item['x'])
+for item in comments:
+     total_count += item['count']
+
+print(total_count)
