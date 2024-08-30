@@ -1,0 +1,6 @@
+#I used the input function so the user can type in their name.
+#The user input will be assigned to the variable name
+name = input('Enter your name:') 
+
+#Now I will print the string/sequence "Welcome" and then print whatever text input (st) the variable name holds
+print("Welcome",name)

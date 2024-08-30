@@ -1,0 +1,10 @@
+import urllib.request
+import json
+
+response = urllib.request.urlopen('https://jsonplaceholder.typicode.com/users/1')
+
+response_json = json.loads(response.text)
+
+street = response_json['company']['name']
+
+print(street)

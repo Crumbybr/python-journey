@@ -1,5 +1,5 @@
 import PyPDF2
-fname = input("Enter Filename: ")
+fname = input("Enter File Directory: ")
 if len(fname) < 1 : fname = 'test.pdf'
 
 pdf_file = open(fname, 'rb')
